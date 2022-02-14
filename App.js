@@ -1,112 +1,142 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
+ 
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+    <>
+      <ScrollView>
+        <View style={{flexDirection: 'row'}}>
+          <Image 
+            source={require('./assets/img/bg.jpg')}
+            style={styles.banner}
+          />
+        </View>
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+        <View style={styles.contenedor}>
+          <Text style={styles.titulo}>Que hacer en paris</Text>
+          <ScrollView 
+            horizontal
+          >
+            <View>
+              <Image 
+                source={require('./assets/img/actividad1.jpg')}
+                style={styles.ciudad}
+              />
+            </View>
+            <View>
+              <Image 
+                source={require('./assets/img/actividad2.jpg')}
+                style={styles.ciudad}
+              />
+            </View>
+            <View>
+              <Image 
+                source={require('./assets/img/actividad3.jpg')}
+                style={styles.ciudad}
+              />
+            </View>
+            <View>
+              <Image 
+                source={require('./assets/img/actividad4.jpg')}
+                style={styles.ciudad}
+              />
+            </View>
+            <View>
+              <Image 
+                source={require('./assets/img/actividad5.jpg')}
+                style={styles.ciudad}
+              />
+            </View>
+          </ScrollView>
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+          <Text style={styles.titulo}>Los mejores alojamientos</Text>
+          <View>
+            <View>
+              <Image 
+                source={require('./assets/img/mejores1.jpg')}
+                style={styles.mejores}
+              />
+            </View>
+            <View>
+              <Image 
+                source={require('./assets/img/mejores2.jpg')}
+                style={styles.mejores}
+              />
+            </View>
+            <View>
+              <Image 
+                source={require('./assets/img/mejores3.jpg')}
+                style={styles.mejores}
+              />
+            </View>
+          </View>
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+          <Text style={styles.titulo}>Los mejores alojamientos</Text>
+          <View style={styles.listado}>
+            <View style={styles.listadoItem}>
+              <Image 
+                source={require('./assets/img/hospedaje1.jpg')}
+                style={styles.mejores}
+              />
+            </View>
+            <View style={styles.listadoItem}>
+              <Image 
+                source={require('./assets/img/hospedaje2.jpg')}
+                style={styles.mejores}
+              />
+            </View>
+            <View style={styles.listadoItem}>
+              <Image 
+                source={require('./assets/img/hospedaje3.jpg')}
+                style={styles.mejores}
+              />
+            </View>
+            <View style={styles.listadoItem}>
+              <Image 
+                source={require('./assets/img/hospedaje4.jpg')}
+                style={styles.mejores}
+              />
+            </View>
+          </View>
+          
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  banner: {
+    height: 250,
+    flex: 1
   },
-  sectionTitle: {
+  titulo: {
+    fontWeight: 'bold',
     fontSize: 24,
-    fontWeight: '600',
+    marginVertical: 20
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  contenedor: {
+    marginHorizontal: 10
   },
-  highlight: {
-    fontWeight: '700',
+  ciudad: {
+    width: 250,
+    height: 300,
+    marginRight: 10
   },
+  mejores: {
+    width: '100%',
+    height: 200,
+    marginVertical: 5
+  },
+  listado: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
+  },
+  listadoItem: {
+    flexBasis: '49%'
+  }
 });
 
 export default App;
